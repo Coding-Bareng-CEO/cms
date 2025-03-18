@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Coding-Bareng-CEO/cms#readme",
   "description": "",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "express-ejs-layouts": "^2.5.1",

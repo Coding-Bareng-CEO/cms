@@ -1,0 +1,6 @@
+2025-03-18T22:39:02+07:00 - Created SQL table for articles with columns: title, image_url, description, fulltext.
+2025-03-18T22:39:02+07:00 - Inserted 5 blockchain-related articles into the articles table.
+2025-03-18T22:39:02+07:00 - Set up Supabase client in Node.js environment.
+2025-03-18T22:39:02+07:00 - Updated EJS template to display articles from Supabase.
+2025-03-18T22:39:02+07:00 - Implemented compact layout for article display with hover effects.
+2025-03-18T22:39:02+07:00 - Moved inline CSS to global.css and linked it in layout.ejs.

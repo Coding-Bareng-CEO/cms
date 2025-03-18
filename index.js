@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const path = require('path');
+const supabase = require('./supabase'); // Assuming you have a supabase.js file with the client setup
 
 // konfigurasi static
 app.use(express.static(path.join(__dirname, 'public')));
@@ -15,14 +16,23 @@ app.set('views', path.join(__dirname, 'views'));
 
 
 // fase 3: templating web 1.0
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
+    const { data: articles, error } = await supabase
+        .from('articles')
+        .select('*');
+
+    if (error) {
+        console.error('Error fetching articles:', error);
+        return res.status(500).send('Error fetching articles');
+    }
+
     const headline = {
         title: "Berita Utama Hari Ini",
         summary: "Ringkasan berita utama yang sedang trending.",
         image: "/images/eth.png" // Pastikan ada gambar di folder public/images
     };
 
-    res.render("index", { title: "Beranda", headline });
+    res.render("index", { title: "Beranda", headline, articles });
 });
 
 app.get("/about", (req, res) => {
